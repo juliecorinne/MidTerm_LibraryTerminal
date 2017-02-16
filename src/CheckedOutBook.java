@@ -7,21 +7,11 @@ import java.util.Date;
  */
 public class CheckedOutBook extends Book {
 
-    private boolean checkedOut;
     private Date date;
 
-    public CheckedOutBook(String title, String author, String category, Calendar dueDate, boolean status, boolean checkedOut, Date date) {
+    public CheckedOutBook(String title, String author, String category, Calendar dueDate, boolean status, Date date) {
         super(title, author, category, dueDate, status);
-        this.checkedOut = checkedOut;
         this.date = date;
-    }
-
-    public boolean isCheckedOut() {
-        return checkedOut;
-    }
-
-    public void setCheckedOut(boolean checkedOut) {
-        this.checkedOut = checkedOut;
     }
 
     public Date getDate() {
@@ -31,6 +21,7 @@ public class CheckedOutBook extends Book {
     public void setDate(Date date) {
         this.date = date;
     }
+
 
 
 }

@@ -1,0 +1,25 @@
+
+if (CheckedOutBook.checkedOut() != null) {
+
+CheckedOutBook.checkedOut = false;
+
+} else {
+
+CheckedOutBook.checkedOut = true;
+
+}
+
+return CheckedOutBook.checkedOut;
+
+if (CheckedOutBook.checkedOut() = true){
+
+        setcheckedOut = false;
+
+} else {
+
+       Calendar now = Calendar.getInstance();
+       now.add(Calendar.WEEK_OF_MONTH, 2);
+
+       System.out.println(now.getTime());
+
+}
