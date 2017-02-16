@@ -6,6 +6,7 @@ public class Book {
     private String category;
     private String isbn;
     private boolean status;
+    private Calendar date;
 
     public Book(String title, String author, String category, String isbn, boolean status) {
         this.title = title;
@@ -13,6 +14,15 @@ public class Book {
         this.category = category;
         this.isbn = isbn;
         this.status = status;
+    }
+
+    public Book(String title, String author, String category, String isbn, boolean status, Calendar date){
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.isbn = isbn;
+        this.status = status;
+        this.date = date;
     }
 
     public String getTitle() {
@@ -37,6 +47,14 @@ public class Book {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Calendar getDate() {
+        return date;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
     }
 
     public boolean isStatus() {

@@ -32,8 +32,9 @@ public class BookDB {
     //Displays entire book list
     public void displayBooks(){
         for(Book b: this.collection){
-            System.out.println(b.toString());
+            System.out.println(b);
         }
+        checkOut();
     }
 
     public void searchByKeyword(){
@@ -42,7 +43,7 @@ public class BookDB {
             if (b.getCategory().toLowerCase().contains(input.toLowerCase()) || b.getAuthor().toLowerCase().contains(input.toLowerCase()) || b.getTitle().toLowerCase().contains(input.toLowerCase())){
                 System.out.println(b);
             }
-            selectBook();
+            checkOut();
         }
     }
 
@@ -52,7 +53,7 @@ public class BookDB {
             if(b.getAuthor().toLowerCase().contains(input.toLowerCase())){
                 System.out.println(b);
             }
-            selectBook();
+            checkOut();
         }
     }
 
@@ -62,7 +63,7 @@ public class BookDB {
             if (b.getCategory().toLowerCase().contains(input.toLowerCase())) {
                 System.out.println(b);
             }
-            selectBook();
+            checkOut();
         }
     }
 
@@ -76,14 +77,44 @@ public class BookDB {
 
     public Book selectBook(){
         String input = Validate.getString("Enter ISBN or Book Title to check out: ");
-        for(Book b: this.collection){
-        if(input.equalsIgnoreCase(b.getIsbn()) || input.equalsIgnoreCase(b.getTitle())){
-            System.out.println(b);
-            return b;
+        for(Book b: this.collection) {
+            if (input.equalsIgnoreCase(b.getIsbn()) || input.equalsIgnoreCase(b.getTitle())) {
+                System.out.println(b);
+                if (b.isStatus()) {
+                    System.out.println("Book is available!");
+                    switchStatus(b);
+                    System.out.println(b.isStatus());
+                    return b;
+                }
+                System.out.println("Book is not available!");
+
             }
         }
-            return null;
+        return null;
     }
+
+    public void checkOut(){
+        String input = Validate.validateYesOrNo("Would you like to checkout a book? (Y/N)");
+        if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")){
+            selectBook();
+        }
+    }
+
+    public void switchStatus(Book b){
+        if(b.isStatus()){
+            b.setStatus(false);
+            Calendar now = Calendar.getInstance();
+            now.add(Calendar.DAY_OF_MONTH, 14);
+            b.setDate(now);
+            System.out.println(b.getDate().getTime());
+
+
+        } else{
+            b.setStatus(true);
+            Book b1 = b;
+        }
+    }
+
 
 
     //ArrayList of Book objects to store Book objects added from .txt File
