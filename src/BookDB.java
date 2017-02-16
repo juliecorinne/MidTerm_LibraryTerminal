@@ -1,15 +1,15 @@
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class BookDB {
     private ArrayList<Book> collection;
-    private Path filePath = Paths.get("bookDB.txt");
-    private File bookDBFile = filePath.toFile();
+    private static Path filePath = Paths.get("bookDB.txt");
+    private static File bookDBFile = filePath.toFile();
 
     //constructor
     public BookDB() {
@@ -28,10 +28,13 @@ public class BookDB {
         this.collection.add(book);
     }
 
-    /*  writes bookDB.txt before app closes.
-        formats .txt file to allow loadBookDB method to read again upon opening program again.
-        @param tempList is used to call bookDB data that will be stored in .txt file
-     */
+
+    //Displays entire book list
+    public void displayBooks(){
+        for(Book b: this.collection){
+            System.out.println(b.toString());
+        }
+    }
 
     public void searchByKeyword(){
         String input = Validate.getString("Enter book keyword: ");
@@ -72,7 +75,7 @@ public class BookDB {
     }
 
     public Book selectBook(){
-        String input = Validate.getString("Enter ISBN or Book Title to select: ");
+        String input = Validate.getString("Enter ISBN or Book Title to check out: ");
         for(Book b: this.collection){
         if(input.equalsIgnoreCase(b.getIsbn()) || input.equalsIgnoreCase(b.getTitle())){
             System.out.println(b);
@@ -83,7 +86,74 @@ public class BookDB {
     }
 
 
-    public void writeBookDB(BookDB tempList) {
+    //ArrayList of Book objects to store Book objects added from .txt File
+    public static BookDB loadBookDB() {
+
+        BookDB tempList = new BookDB();
+        try {
+            FileReader r = new FileReader(bookDBFile);
+            LineNumberReader lnr = new LineNumberReader(r);
+            //Calls last line number in text file
+            lnr.skip(Long.MAX_VALUE);
+            //add 1 becuase LineNumberReader starts at 0
+            long length = lnr.getLineNumber() + 1;
+            lnr.close();
+
+            BufferedReader reader = new BufferedReader(new FileReader(bookDBFile));
+
+            int numFields = 6; //Book class has 6 fields
+            for (int i=1; i<length/numFields; i++) {
+                String title = reader.readLine();
+                String author = reader.readLine();
+                String genre = reader.readLine();
+                String isbn = reader.readLine();
+                //reads string from .txt file, converts to boolean. will return false for any strings that are not "true"
+                String s = reader.readLine();
+                boolean status = Boolean.parseBoolean(s);
+                //JB tempList.addBook(new Book(title, author, category, date, status));
+                //reads string from .txt file, converts to Calendar object.
+                String d = reader.readLine();
+                if(d.equalsIgnoreCase("")){
+                    tempList.addBook(new Book(title, author, genre, isbn, status));
+                }else {
+                    Calendar date = stringToCalendar(d);
+                    tempList.addBook(new CheckedOutBook(title, author, genre, isbn, status, date));
+                }
+
+            }
+
+            reader.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return tempList;
+    }
+
+
+
+
+
+    /*  Method converts String object to calendar object.
+        String must be in specified SimpleDateFormat, otherwise throws ParseException
+        @param String string specifies String to be converted
+     */
+    public static Calendar stringToCalendar(String string) {
+        Calendar cal = Calendar.getInstance();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+            cal.setTime(sdf.parse(string));
+        } catch (ParseException e) {
+            cal = null;
+        }
+
+        return cal;
+    }
+
+    /*  writes bookDB.txt before app closes.
+        formats .txt file to allow loadBookDB method to read again upon opening program again.
+        @param tempList is used to call bookDB data that will be stored in .txt file
+     */
+    public void writeBookDB() {
 
         try {
             PrintWriter out = new PrintWriter(new FileOutputStream(bookDBFile));

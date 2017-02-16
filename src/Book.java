@@ -56,12 +56,12 @@ public class Book {
 
     @Override
     public  String  toString() {
-        String checkedOut = "";
+        String checkedOut = "Checked Out";
         if (status){
-            checkedOut = "Checked Out";
+            checkedOut = "";
         }
 
-        return String.format("%-10s %-10s %-10s %-10s %-10s", title, author, category, isbn, checkedOut);
+        return String.format("%-50s %-20s %-20s %-10s %-20s", title, author, category, isbn, checkedOut);
 
     }
 

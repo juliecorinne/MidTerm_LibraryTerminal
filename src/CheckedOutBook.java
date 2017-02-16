@@ -10,8 +10,8 @@ public class CheckedOutBook extends Book {
 
     private Calendar date;
 
-    public CheckedOutBook(String title, String author, String category,  boolean status, Calendar date) {
-        super(title, author, category, status);
+    public CheckedOutBook(String title, String author, String category, String isbn, boolean status, Calendar date) {
+        super(title, author, category, isbn, status);
         this.date = date;
     }
 

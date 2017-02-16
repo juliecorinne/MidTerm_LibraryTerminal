@@ -1,45 +1,53 @@
 Nineteen Eighty-Four
 Orwell, George
 Fiction
-10-21-2014
+1234
 true
+
 A Heartbreaking Work of Staggering Genius
 Eggers, Dave
 Memoir
-
+1235
 false
+10-21-2014
 The Grapes of Wrath
 Steinbeck, John
 Fiction
-
+1236
 false
+2-16-2017
 A Million Little Pieces
 Frey, James
 Fiction
+1237
+true
 
-false
 A Room of One's Own
 Woolf, Virginia
 Non-Fiction
+1238
+true
 
-false
 The Making of the Atomic Bomb
 Rhodes, Richard
 Non-Fiction
-
+1239
 false
+2-15-2017
 To Kill a Mockingbird
 Lee, Harper
 Fiction
+1240
+true
 
-false
 The Girl on the Train
 Hawkins, Paula
 Fiction
+1241
+true
 
-false
 Wild: From Lost to Found on the Pacific Crest Trail
 Strayed, Cheryl
 Memoir
-
-false
+1242
+true
