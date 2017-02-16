@@ -112,13 +112,7 @@ public class BookDB {
             Calendar now = Calendar.getInstance();
             now.add(Calendar.DAY_OF_MONTH, 14);
             b.setDate(now);
-            System.out.println(b.getDate().getTime());
-
-        } else {
-            CheckedOutBook book;
-            book = new CheckedOutBook(b.getTitle(), b.getAuthor(), b.getCategory(), b.getIsbn(), b.isStatus(),b.getDate());
-            b = book;
-            System.out.println(b.toString());
+            System.out.println(b.getDateString());
 
         } else{
             b.setStatus(true);

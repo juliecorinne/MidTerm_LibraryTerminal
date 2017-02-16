@@ -15,7 +15,7 @@ Steinbeck, John
 Fiction
 1236
 false
-2-16-2017
+02-16-2017
 A Million Little Pieces
 Frey, James
 Fiction
@@ -33,21 +33,22 @@ Rhodes, Richard
 Non-Fiction
 1239
 false
-2-15-2017
+02-15-2017
 To Kill a Mockingbird
 Lee, Harper
 Fiction
 1240
-true
+false
 
 The Girl on the Train
 Hawkins, Paula
 Fiction
 1241
-true
+false
 
 Wild: From Lost to Found on the Pacific Crest Trail
 Strayed, Cheryl
 Memoir
 1242
-true
+false
+

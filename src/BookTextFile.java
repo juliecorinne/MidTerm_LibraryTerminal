@@ -22,13 +22,13 @@ public class BookTextFile {
             //Calls last line number in text file
             lnr.skip(Long.MAX_VALUE);
             //add 1 becuase LineNumberReader starts at 0
-            long length = lnr.getLineNumber() + 1;
+            long length = lnr.getLineNumber();
             lnr.close();
 
             BufferedReader reader = new BufferedReader(new FileReader(bookDBFile));
 
             int numFields = 6; //Book class has 6 fields
-            for (int i=1; i<length/numFields; i++) {
+            for (int i=0; i<length/numFields; i++) {
                 String title = reader.readLine();
                 String author = reader.readLine();
                 String genre = reader.readLine();

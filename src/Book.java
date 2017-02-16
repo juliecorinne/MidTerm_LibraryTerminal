@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Book {
@@ -49,14 +50,6 @@ public class Book {
         this.category = category;
     }
 
-    public Calendar getDate() {
-        return date;
-    }
-
-    public void setDate(Calendar date) {
-        this.date = date;
-    }
-
     public boolean isStatus() {
         return status;
     }
@@ -70,6 +63,19 @@ public class Book {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public Calendar getDate() {
+        return date;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
+
+    public String getDateString() {
+        SimpleDateFormat format1 = new SimpleDateFormat("MM-dd-yyy");
+        return format1.format(this.date.getTime());
     }
 
     @Override

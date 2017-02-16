@@ -1,7 +1,7 @@
 public class LibraryApp {
     static BookDB bookDB = new BookDB();
 
-    public static void displayMenu(){
+    public static void displayMenu() {
         System.out.println("Grand Circus Library");
         System.out.println("1. Display list of books");
         System.out.println("2. Search by Author");
@@ -10,7 +10,7 @@ public class LibraryApp {
         System.out.println("5. Quit");
     }
 
-    public static void userSelection(){
+    public static void userSelection() {
         int userChoice = Validate.validateInt("Select option (1-6): ", 1, 5);
         switch (userChoice) {
             case 1:
@@ -34,11 +34,18 @@ public class LibraryApp {
 
     public static void main(String[] args) {
         bookDB = BookTextFile.loadBookDB();
-        displayMenu();
-        userSelection();
+        boolean continueLoop = true;
+        String userString;
+
+        while (continueLoop) {
+            displayMenu();
+            userSelection();
+            userString = Validate.validateYesOrNo("Would you like to return to main menu? (Y/N) ");
+            if (userString.equalsIgnoreCase("n")) {
+                continueLoop = false;
+            }
+        }
+        System.out.println(bookDB.getCollection().size());
         BookTextFile.writeBookDB(bookDB);
     }
-
-
-
 }
