@@ -29,7 +29,7 @@ public class BookTextFile {
             long length = lnr.getLineNumber() + 1;
             lnr.close();
 
-            BufferedReader reader = new BufferedReader(r);
+            BufferedReader reader = new BufferedReader(new FileReader(bookDBFile));
 
             int numFields = 5; //Book class has 5 fields
             for (int i=0; i<length/numFields; i++) {
@@ -51,6 +51,11 @@ public class BookTextFile {
         }
         return tempList;
     }
+
+
+
+
+
     /*  Method converts String object to calendar object.
         String must be in specified SimpleDateFormat, otherwise throws ParseException
         @param String string specifies String to be converted
