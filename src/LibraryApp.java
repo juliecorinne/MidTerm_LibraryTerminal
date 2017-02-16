@@ -26,17 +26,17 @@ public class LibraryApp {
                 bookDB.searchByCategory();
                 break;
             case 5:
-                bookDB.writeBookDB();
+                BookTextFile.writeBookDB(bookDB);
                 break;
 
         }
     }
 
     public static void main(String[] args) {
-        bookDB = BookDB.loadBookDB();
+        bookDB = BookTextFile.loadBookDB();
         displayMenu();
         userSelection();
-
+        BookTextFile.writeBookDB(bookDB);
     }
 
 
