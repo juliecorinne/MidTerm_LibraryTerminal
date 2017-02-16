@@ -1,10 +1,45 @@
-1983
+Nineteen Eighty-Four
 Orwell, George
-Sci-Fi
+Fiction
 10-21-2014
 true
-A staggeting
-Eggers, David
+A Heartbreaking Work of Staggering Genius
+Eggers, Dave
+Memoir
+
+false
+The Grapes of Wrath
+Steinbeck, John
 Fiction
+
+false
+A Million Little Pieces
+Frey, James
+Fiction
+
+false
+A Room of One's Own
+Woolf, Virginia
+Non-Fiction
+
+false
+The Making of the Atomic Bomb
+Rhodes, Richard
+Non-Fiction
+
+false
+To Kill a Mockingbird
+Lee, Harper
+Fiction
+
+false
+The Girl on the Train
+Hawkins, Paula
+Fiction
+
+false
+Wild: From Lost to Found on the Pacific Crest Trail
+Strayed, Cheryl
+Memoir
 
 false
