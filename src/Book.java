@@ -4,14 +4,13 @@ public class Book {
     private String title;
     private String author;
     private String category;
-    private Calendar dueDate;
+
     private boolean status;
 
-    public Book(String title, String author, String category, Calendar dueDate, boolean status) {
+    public Book(String title, String author, String category, boolean status) {
         this.title = title;
         this.author = author;
         this.category = category;
-        this.dueDate = dueDate;
         this.status = status;
     }
 
@@ -39,13 +38,6 @@ public class Book {
         this.category = category;
     }
 
-    public Calendar getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(Calendar dueDate) {
-        this.dueDate = dueDate;
-    }
 
     public boolean isStatus() {
         return status;
@@ -54,6 +46,17 @@ public class Book {
     public void setStatus(boolean status) {
         this.status = status;
     }
+    @Override
+    public  String  toString() {
+        String checkedOut = "";
+        if (status == true){
+            checkedOut = "Available";
+        }else {
+            checkedOut = "Checkedout";
+        }
 
+        return String.format("%-10s %-10s %-10s %-10s", title, author, category, checkedOut);
+
+    }
 
 }

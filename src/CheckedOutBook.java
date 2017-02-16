@@ -1,4 +1,5 @@
 //import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,8 +10,8 @@ public class CheckedOutBook extends Book {
 
     private Calendar date;
 
-    public CheckedOutBook(String title, String author, String category, Calendar dueDate, boolean status, Calendar date) {
-        super(title, author, category, dueDate, status);
+    public CheckedOutBook(String title, String author, String category,  boolean status, Calendar date) {
+        super(title, author, category, status);
         this.date = date;
     }
 
@@ -22,6 +23,30 @@ public class CheckedOutBook extends Book {
         this.date = date;
     }
 
+    @Override
+    public  String  toString() {
+
+
+
+
+
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+       // System.out.println(date.getTime());
+        // Output "Wed Sep 26 14:23:28 EST 2012"
+
+        String formatted = format1.format(date.getTime());
+      //  System.out.println(formatted);
+        // Output "2012-09-26"
+
+
+
+
+return  super .toString() + String.format(" %-10s", formatted);
+
+
+
+
+    }
 
 
 }
