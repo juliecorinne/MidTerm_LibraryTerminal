@@ -23,25 +23,28 @@ public class CheckedOutBook extends Book {
         this.date = date;
     }
 
+    //converts Calendar object to String object
+    public String getDateString() {
+        SimpleDateFormat format1 = new SimpleDateFormat("MM-dd-yyy");
+        return format1.format(this.date.getTime());
+    }
+
     @Override
-    public  String  toString() {
+    public  String  toString(){
 
 
-
-
-
-        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+       // SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
        // System.out.println(date.getTime());
         // Output "Wed Sep 26 14:23:28 EST 2012"
 
-        String formatted = format1.format(date.getTime());
+        //String formatted = format1.format(date.getTime());
       //  System.out.println(formatted);
         // Output "2012-09-26"
 
 
 
 
-return  super .toString() + String.format(" %-10s", formatted);
+return  super .toString() + String.format(" %-10s", getDateString() );
 
 
 

@@ -43,7 +43,7 @@ public class BookDB {
                 out.println(book.getCategory());
                 out.println(String.valueOf(book.isStatus()));
                 if (book instanceof CheckedOutBook) {
-                    out.println(book.getDueDate());
+                    out.println(((CheckedOutBook) book).getDateString());
                 } else {
                     out.println("");
                 }
@@ -55,8 +55,3 @@ public class BookDB {
     }
 }
 
-<<<<<<< HEAD
-
-=======
-}
->>>>>>> a5c592be64570c9b0f327f53b5da7bcc29f4630c
