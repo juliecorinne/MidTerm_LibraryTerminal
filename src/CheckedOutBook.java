@@ -7,18 +7,18 @@ import java.util.Date;
  */
 public class CheckedOutBook extends Book {
 
-    private Date date;
+    private Calendar date;
 
-    public CheckedOutBook(String title, String author, String category, Calendar dueDate, boolean status, Date date) {
+    public CheckedOutBook(String title, String author, String category, Calendar dueDate, boolean status, Calendar date) {
         super(title, author, category, dueDate, status);
         this.date = date;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 
