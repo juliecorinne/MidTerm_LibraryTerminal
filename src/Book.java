@@ -4,13 +4,14 @@ public class Book {
     private String title;
     private String author;
     private String category;
-
+    private String isbn;
     private boolean status;
 
-    public Book(String title, String author, String category, boolean status) {
+    public Book(String title, String author, String category, String isbn, boolean status) {
         this.title = title;
         this.author = author;
         this.category = category;
+        this.isbn = isbn;
         this.status = status;
     }
 
@@ -38,24 +39,29 @@ public class Book {
         this.category = category;
     }
 
-
     public boolean isStatus() {
         return status;
     }
-
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     @Override
     public  String  toString() {
         String checkedOut = "";
-        if (status == true){
-            checkedOut = "Available";
-        }else {
-            checkedOut = "Checkedout";
+        if (status){
+            checkedOut = "Checked Out";
         }
 
-        return String.format("%-10s %-10s %-10s %-10s", title, author, category, checkedOut);
+        return String.format("%-10s %-10s %-10s %-10s %-10s", title, author, category, isbn, checkedOut);
 
     }
 

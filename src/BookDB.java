@@ -32,6 +32,57 @@ public class BookDB {
         formats .txt file to allow loadBookDB method to read again upon opening program again.
         @param tempList is used to call bookDB data that will be stored in .txt file
      */
+
+    public void searchByKeyword(){
+        String input = Validate.getString("Enter book keyword: ");
+        for(Book b: this.collection){
+            if (b.getCategory().toLowerCase().contains(input.toLowerCase()) || b.getAuthor().toLowerCase().contains(input.toLowerCase()) || b.getTitle().toLowerCase().contains(input.toLowerCase())){
+                System.out.println(b);
+            }
+            selectBook();
+        }
+    }
+
+    public void searchByAuthor(){
+        String input = Validate.getString("Enter book author: ");
+        for(Book b: this.collection){
+            if(b.getAuthor().toLowerCase().contains(input.toLowerCase())){
+                System.out.println(b);
+            }
+            selectBook();
+        }
+    }
+
+    public void searchByCategory() {
+        String input = Validate.getString("Enter book category: ");
+        for (Book b : this.collection) {
+            if (b.getCategory().toLowerCase().contains(input.toLowerCase())) {
+                System.out.println(b);
+            }
+            selectBook();
+        }
+    }
+
+    public void checkAvailable(Book b){
+        if(b.isStatus()){
+            System.out.println("Book is not available");
+        } else{
+            System.out.println("Book is available");
+        }
+    }
+
+    public Book selectBook(){
+        String input = Validate.getString("Enter ISBN or Book Title to select: ");
+        for(Book b: this.collection){
+        if(input.equalsIgnoreCase(b.getIsbn()) || input.equalsIgnoreCase(b.getTitle())){
+            System.out.println(b);
+            return b;
+            }
+        }
+            return null;
+    }
+
+
     public void writeBookDB(BookDB tempList) {
 
         try {
