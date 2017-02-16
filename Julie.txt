@@ -29,3 +29,25 @@ if (CheckedOutBook.checkedOut() = true){
                 System.out.println(b);
             }
         }
+
+
+possible for return book??
+
+ } else if (!b.isStatus()){
+    b.setStatus(true);
+    System.out.println(b);
+   }
+
+menu option
+
+5. Return a book.
+
+please select the book you would like to return:
+
+(shows all books with status false)
+
+write ibsn or title
+
+goes to method that switches the status of the book
+
+

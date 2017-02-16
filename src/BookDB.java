@@ -67,6 +67,15 @@ public class BookDB {
         }
     }
 
+    public void returnBook(){
+        for (Book b: this.collection){
+            if (!b.isStatus()){
+                System.out.println(b);
+            }
+        }
+        String input = Validate.getString("Enter ISBN or Book Title to return: ");
+    }
+
     public void checkAvailable(Book b){
         if(b.isStatus()){
             System.out.println("Book is not available");
@@ -101,15 +110,14 @@ public class BookDB {
     }
 
     public void switchStatus(Book b){
-        if(b.isStatus()){
+        if(b.isStatus()) {
             b.setStatus(false);
             Calendar now = Calendar.getInstance();
             now.add(Calendar.DAY_OF_MONTH, 14);
             b.setDate(now);
             System.out.println(b.getDate().getTime());
 
-
-        } else{
+        } else {
             b.setStatus(true);
             Book b1 = b;
         }
