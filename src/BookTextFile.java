@@ -42,7 +42,8 @@ public class BookTextFile {
                 //reads string from .txt file, converts to boolean. will return false for any strings that are not "true"
                 String s = reader.readLine();
                 boolean status = Boolean.parseBoolean(s);
-                tempList.addBook(new Book(title, author, genre, date, status));
+               //JB tempList.addBook(new Book(title, author, category, date, status));
+                tempList.addBook(new Book(title, author, author, status));
             }
 
             reader.close();
