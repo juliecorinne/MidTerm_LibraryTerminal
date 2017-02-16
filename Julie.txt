@@ -23,3 +23,9 @@ if (CheckedOutBook.checkedOut() = true){
        System.out.println(now.getTime());
 
 }
+
+        for (Book b : bookList) {
+            if (b.getCategory().toLowerCase().contains(keyWord.toLowerCase()) || b.getAuthor().toLowerCase().contains(keyWord.toLowerCase()) || b.getTitle().toLowerCase().contains(keyWord.toLowerCase())){
+                System.out.println(b);
+            }
+        }
