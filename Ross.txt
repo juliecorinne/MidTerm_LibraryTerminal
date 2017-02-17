@@ -1,0 +1,75 @@
+    public void returnBook() {
+        boolean checkOne = false;
+        for (Book b : this.collection) {
+            if (!b.getStatus()) {
+                System.out.println(b);
+                checkOne = true;
+            }
+        }
+        boolean checkTwo = false;
+        while (!checkTwo) {
+            String input = Validate.getString("Enter ISBN or Book Title to return: ");
+            for (Book book : this.collection) {
+                if (input.equalsIgnoreCase(book.getIsbn()) || input.equalsIgnoreCase(book.getTitle())) {
+                    System.out.println(book);
+                    checkTwo = true;
+                    input = Validate.validateYesOrNo("Is this the book you would like to return? (Y/N) ");
+                    if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
+                        book.checkInOut();
+                        System.out.println("Thank you for returning " + book.getTitle() + "!");
+                    }
+                }
+            }
+            if (!checkOne) {
+                System.out.println("No book currently checked out!");
+                return;
+            }
+        }
+    }
+
+    //gathers userinput for book title
+    public String getUserTitle() {
+        return Validate.getString("Enter title: ");
+    }
+
+    //gathers user input for book author
+    public String getUserAuthor() {
+        String lastName = Validate.getString("Enter author last name: ");
+        String firstName = Validate.getString("Enter author first name: ");
+
+        return lastName + ", " + firstName;
+    }
+
+    //gathers user input for book genre
+    public String getUserGenre() {
+        return Validate.getString("Enter genre: ");
+    }
+
+    public void addUserBook() {
+        this.collection.add(new Book(getUserTitle(), getUserAuthor(), getUserGenre(), Book.setRandomISBN(), true));
+        System.out.println("Thank you for your donation!");
+    }
+
+    public void selectBook() {
+        boolean check = false;
+        String input = Validate.getString("Enter ISBN or Book Title to check out: ");
+
+        for (Book b : this.collection) {
+            if (input.equalsIgnoreCase(b.getIsbn()) || input.equalsIgnoreCase(b.getTitle())) {
+                check = true;
+                if (b.getStatus()) {
+                    System.out.println("Book is available!");
+                    System.out.println(b);
+                    input = Validate.validateYesOrNo("Would you like to check out this book? (Y/N) ");
+                    if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
+                        b.checkInOut();
+                        System.out.println(b.getTitle() + " is due back by " + b.getDateString());
+                    }
+                } else {
+                    System.out.println("Book is already checked out!");
+                    return;
+                }
+            }
+        }
+    }
+
