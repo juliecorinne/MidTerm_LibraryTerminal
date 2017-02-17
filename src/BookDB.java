@@ -82,13 +82,25 @@ public class BookDB {
         Prints message if no matches appear.
     */
     public void searchByKeyword() {
-        String input = Validate.getString("Enter book keyword: ");
-        for (Book b : this.collection) {
-            if (b.getCategory().toLowerCase().contains(input.toLowerCase()) || b.getAuthor().toLowerCase().contains(input.toLowerCase()) || b.getTitle().toLowerCase().contains(input.toLowerCase())) {
-                System.out.println(b);
+        boolean keyword = false;
+            String input = Validate.getString("Enter book keyword: ");
+            while (!keyword) {
+                for (Book b : this.collection) {
+                    if (b.getCategory().toLowerCase().contains(input.toLowerCase()) || b.getAuthor().toLowerCase().contains(input.toLowerCase()) || b.getTitle().toLowerCase().contains(input.toLowerCase())) {
+                        System.out.println(b);
+                        keyword = true;
+                    }
+                }
+
+                if (!keyword) {
+                    System.out.println("Sorry! Invalid entry. Please try again.");
+                    input = Validate.getString("Enter book keyword: ");
+
+                } else {
+                    checkOut();
+                }
             }
-        }
-        checkOut();
+
     }
 
     /*  Method gather string from user.
