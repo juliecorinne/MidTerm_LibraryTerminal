@@ -69,10 +69,17 @@ public class BookDB {
 
     //Displays entire book list
     public void displayBooks() {
+        header();
         for (Book b : this.collection) {
             System.out.println(b);
         }
         checkOut();
+    }
+
+    public void header() {
+        System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println();
     }
 
 
@@ -85,6 +92,7 @@ public class BookDB {
         boolean continueLoop = false;
         String input = Validate.getString("Enter book keyword: ");
         while (!continueLoop) {
+            header();
             for (Book b : this.collection) {
                 if (b.getCategory().toLowerCase().contains(input.toLowerCase()) || b.getAuthor().toLowerCase().contains(input.toLowerCase()) || b.getTitle().toLowerCase().contains(input.toLowerCase())) {
                     System.out.println(b);
@@ -93,7 +101,7 @@ public class BookDB {
             }
 
             if (!continueLoop) {
-                System.out.println("Sorry! Invalid entry. Please try again.");
+                System.out.println("No matches! Please try again.");
                 input = Validate.getString("Enter book keyword: ");
 
             } else {
@@ -112,6 +120,7 @@ public class BookDB {
         boolean continueLoop = false;
         String input = Validate.getString("Enter book author: ");
         while (!continueLoop) {
+            header();
             for (Book b : this.collection) {
                 if (b.getAuthor().toLowerCase().contains(input.toLowerCase())) {
                     System.out.println(b);
@@ -119,7 +128,7 @@ public class BookDB {
                 }
             }
             if (!continueLoop) {
-                System.out.println("Sorry! Invalid entry. Please try again.");
+                System.out.println("No matches! Please try again.");
                 input = Validate.getString("Enter book author: ");
             } else {
                 checkOut();
@@ -139,6 +148,7 @@ public class BookDB {
         boolean continueLoop = false;
         String input = Validate.getString("Enter book category: ");
         while (!continueLoop) {
+            header();
             for (Book b : this.collection) {
                 if (b.getCategory().toLowerCase().contains(input.toLowerCase())) {
                     System.out.println(b);
@@ -146,7 +156,7 @@ public class BookDB {
                 }
             }
             if (!continueLoop) {
-                System.out.println("Sorry! Invalid entry. Please try again.");
+                System.out.println("No matches! Please try again.");
                 input = Validate.getString("Enter book category: ");
             } else {
                 checkOut();
@@ -158,23 +168,29 @@ public class BookDB {
 
 
     public void returnBook() {
+        boolean continueLoop = false;
+        header();
         for (Book b : this.collection) {
             if (!b.getStatus()) {
                 System.out.println(b);
             }
         }
         String input = Validate.getString("Enter ISBN or Book Title to return: ");
-        for (Book book : this.collection) {
-            if (input.equalsIgnoreCase(book.getIsbn()) || input.equalsIgnoreCase(book.getTitle())) {
-                System.out.println(book);
-                input = Validate.validateYesOrNo("Is this the book you would like to return? (Y/N) ");
-                if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
-                    book.checkInOut();
-                    System.out.println("Thank you for returning " + book.getTitle() + "!");
+        while (!continueLoop) {
+            for (Book book : this.collection) {
+                if (input.equalsIgnoreCase(book.getIsbn()) || input.equalsIgnoreCase(book.getTitle())) {
+                    System.out.println(book);
+                    continueLoop = true;
+                    input = Validate.validateYesOrNo("Is this the book you would like to return? (Y/N) ");
+                    if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
+                        book.checkInOut();
+                        System.out.println("Thank you for returning " + book.getTitle() + "!");
+                    }
                 }
-            } else {
-                System.out.println("No books currently checked out!");
-                return;
+            }
+            if (!continueLoop){
+                System.out.println("No matches! Please try again.");
+                input = Validate.getString("Please enter ISBN or Book Title to return: ");
             }
         }
     }

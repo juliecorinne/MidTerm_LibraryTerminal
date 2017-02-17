@@ -17,39 +17,21 @@ public class LibraryApp {
         int userChoice = Validate.validateInt("Select option (1-7): ", 1, 7);
         switch (userChoice) {
             case 1:
-                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
-                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-                System.out.println();
                 bookDB.displayBooks();
                 break;
             case 2:
-                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
-                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-                System.out.println();
                 bookDB.searchByKeyword();
                 break;
             case 3:
-                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
-                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-                System.out.println();
                 bookDB.searchByAuthor();
                 break;
             case 4:
-                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
-                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-                System.out.println();
                 bookDB.searchByCategory();
                 break;
             case 5:
-                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
-                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-                System.out.println();
                 bookDB.returnBook();
                 break;
             case 6:
-                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
-                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-                System.out.println();
                 bookDB.addUserBook();
                 break;
             case 7:
