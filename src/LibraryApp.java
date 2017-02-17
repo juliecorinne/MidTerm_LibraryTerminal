@@ -20,13 +20,13 @@ public class LibraryApp {
                 bookDB.displayBooks();
                 break;
             case 2:
-                bookDB.searchByKeyword();
+                bookDB.displayByKeyword();
                 break;
             case 3:
-                bookDB.searchByAuthor();
+                bookDB.displayByAuthor();
                 break;
             case 4:
-                bookDB.searchByCategory();
+                bookDB.displayByCategory();
                 break;
             case 5:
                 bookDB.returnBook();
@@ -52,7 +52,7 @@ public class LibraryApp {
             displayMenu();
             userSelection();
             userString = Validate.validateYesOrNo("Would you like to return to main menu? (Y/N) ");
-            if (userString.equalsIgnoreCase("n")) {
+            if (userString.equalsIgnoreCase("n") || userString.equalsIgnoreCase("no")) {
                 continueLoop = false;
             }
         }
