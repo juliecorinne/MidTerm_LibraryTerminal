@@ -82,24 +82,24 @@ public class BookDB {
         Prints message if no matches appear.
     */
     public void searchByKeyword() {
-        boolean keyword = false;
-            String input = Validate.getString("Enter book keyword: ");
-            while (!keyword) {
-                for (Book b : this.collection) {
-                    if (b.getCategory().toLowerCase().contains(input.toLowerCase()) || b.getAuthor().toLowerCase().contains(input.toLowerCase()) || b.getTitle().toLowerCase().contains(input.toLowerCase())) {
-                        System.out.println(b);
-                        keyword = true;
-                    }
-                }
-
-                if (!keyword) {
-                    System.out.println("Sorry! Invalid entry. Please try again.");
-                    input = Validate.getString("Enter book keyword: ");
-
-                } else {
-                    checkOut();
+        boolean continueLoop = false;
+        String input = Validate.getString("Enter book keyword: ");
+        while (!continueLoop) {
+            for (Book b : this.collection) {
+                if (b.getCategory().toLowerCase().contains(input.toLowerCase()) || b.getAuthor().toLowerCase().contains(input.toLowerCase()) || b.getTitle().toLowerCase().contains(input.toLowerCase())) {
+                    System.out.println(b);
+                    continueLoop = true;
                 }
             }
+
+            if (!continueLoop) {
+                System.out.println("Sorry! Invalid entry. Please try again.");
+                input = Validate.getString("Enter book keyword: ");
+
+            } else {
+                checkOut();
+            }
+        }
 
     }
 
@@ -109,13 +109,25 @@ public class BookDB {
         Prints message if no matches appear.
     */
     public void searchByAuthor() {
+        boolean continueLoop = false;
         String input = Validate.getString("Enter book author: ");
-        for (Book b : this.collection) {
-            if (b.getAuthor().toLowerCase().contains(input.toLowerCase())) {
-                System.out.println(b);
+        while (!continueLoop) {
+            for (Book b : this.collection) {
+                if (b.getAuthor().toLowerCase().contains(input.toLowerCase())) {
+                    System.out.println(b);
+                    continueLoop = true;
+                }
             }
+            if (!continueLoop) {
+                System.out.println("Sorry! Invalid entry. Please try again.");
+                input = Validate.getString("Enter book author: ");
+            } else {
+                checkOut();
+            }
+
+
         }
-        checkOut();
+
     }
 
     /*  Method gather string from user.
@@ -124,13 +136,24 @@ public class BookDB {
         Prints message if no matches appear.
      */
     public void searchByCategory() {
+        boolean continueLoop = false;
         String input = Validate.getString("Enter book category: ");
-        for (Book b : this.collection) {
-            if (b.getCategory().toLowerCase().contains(input.toLowerCase())) {
-                System.out.println(b);
+        while (!continueLoop) {
+            for (Book b : this.collection) {
+                if (b.getCategory().toLowerCase().contains(input.toLowerCase())) {
+                    System.out.println(b);
+                    continueLoop = true;
+                }
             }
+            if (!continueLoop) {
+                System.out.println("Sorry! Invalid entry. Please try again.");
+                input = Validate.getString("Enter book category: ");
+            } else {
+                checkOut();
+            }
+
+
         }
-        checkOut();
     }
 
 
