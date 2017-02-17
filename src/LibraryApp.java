@@ -3,7 +3,7 @@ public class LibraryApp {
     static boolean continueLoop = true;
 
     public static void displayMenu() {
-        System.out.println("Grand Circus Library");
+        System.out.println("Hello! Welcome to the grand Circus Library Database.");
         System.out.println("1. Display all books");
         System.out.println("2. Search by Keyword");
         System.out.println("3. Search by Author");
@@ -17,21 +17,39 @@ public class LibraryApp {
         int userChoice = Validate.validateInt("Select option (1-7): ", 1, 7);
         switch (userChoice) {
             case 1:
+                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println();
                 bookDB.displayBooks();
                 break;
             case 2:
+                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println();
                 bookDB.searchByKeyword();
                 break;
             case 3:
+                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println();
                 bookDB.searchByAuthor();
                 break;
             case 4:
+                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println();
                 bookDB.searchByCategory();
                 break;
             case 5:
+                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println();
                 bookDB.returnBook();
                 break;
             case 6:
+                System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println();
                 bookDB.addUserBook();
                 break;
             case 7:
