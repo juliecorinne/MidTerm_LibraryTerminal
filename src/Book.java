@@ -18,6 +18,7 @@ public class Book {
         this.isbn = isbn;
         this.status = status;
     }
+
     //overloaded constructor to allow book to contain dueDate when necessary
     public Book(String title, String author, String category, String isbn, boolean status, Calendar dueDate) {
         this.title = title;
@@ -61,8 +62,8 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public static String setRandomISBN(){
-        Random random = new  Random();
+    public static String setRandomISBN() {
+        Random random = new Random();
         return String.format("%04d", random.nextInt(10000));
     }
 
@@ -75,13 +76,13 @@ public class Book {
         this.status = status;
     }
 
-    public void checkInOut(){
-        if (status){
+    public void checkInOut() {
+        if (status) {
             setStatus(false);
             Calendar now = Calendar.getInstance();
             now.add(Calendar.DAY_OF_MONTH, 14);
             setDueDate(now);
-        } else{
+        } else {
             setStatus(true);
             setDueDate(null);
         }

@@ -18,6 +18,7 @@ public class Validate {
             System.out.println("Input error");
             System.out.println(prompt);
         }
+        scnr.nextLine();
         return input;
     }
 

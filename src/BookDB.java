@@ -40,8 +40,9 @@ public class BookDB {
 
     public void selectBook() {
         String input = Validate.getString("Enter ISBN or Book Title to check out: ");
+
         for (Book b : this.collection) {
-            notify();
+//            notify();
             if (input.equalsIgnoreCase(b.getIsbn()) || input.equalsIgnoreCase(b.getTitle())) {
                 if (b.getStatus()) {
                     System.out.println("Book is available!");
@@ -54,8 +55,6 @@ public class BookDB {
                 } else {
                     System.out.println("Book is already checked out!");
                 }
-            } else {
-                System.out.println("Sorry! This book is not available in our collection.");
             }
         }
     }

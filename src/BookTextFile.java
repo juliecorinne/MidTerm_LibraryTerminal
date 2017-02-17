@@ -28,7 +28,7 @@ public class BookTextFile {
             BufferedReader reader = new BufferedReader(new FileReader(bookDBFile));
 
             int numFields = 6; //Book class has 6 fields
-            for (int i=0; i<length/numFields; i++) {
+            for (int i = 0; i < length / numFields; i++) {
                 String title = reader.readLine();
                 String author = reader.readLine();
                 String genre = reader.readLine();
@@ -38,10 +38,10 @@ public class BookTextFile {
                 boolean status = Boolean.parseBoolean(s);
                 String d = reader.readLine();
                 //readers string from .txt file. If String is empty, creates Book Object without dueDate
-                if(d.equalsIgnoreCase("")){
+                if (d.equalsIgnoreCase("")) {
                     tempList.addBook(new Book(title, author, genre, isbn, status));
-                //reads string from .txt file, converts to Calendar object. If book is checked out, creates Book object with dueDate
-                }else {
+                    //reads string from .txt file, converts to Calendar object. If book is checked out, creates Book object with dueDate
+                } else {
                     Calendar date = stringToCalendar(d);
                     tempList.addBook(new Book(title, author, genre, isbn, status, date));
                 }
@@ -53,9 +53,6 @@ public class BookTextFile {
         }
         return tempList;
     }
-
-
-
 
 
     /*  Method converts String object to calendar object.
@@ -92,7 +89,7 @@ public class BookTextFile {
                 //Prints date as formatted string to file if book is available
                 if (book.getDueDate() != null) {
                     out.println(book.getDateString());
-                //Prints new line if book is checked out
+                    //Prints new line if book is checked out
                 } else {
                     out.println();
                 }

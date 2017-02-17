@@ -1,5 +1,6 @@
 public class LibraryApp {
     static BookDB bookDB = new BookDB();
+    static boolean continueLoop = true;
 
     public static void displayMenu() {
         System.out.println("Grand Circus Library");
@@ -32,13 +33,18 @@ public class LibraryApp {
                 break;
             case 6:
                 bookDB.addUserBook();
+                break;
+            case 7:
+                BookTextFile.writeBookDB(bookDB);
+                System.out.println("Thanks! Come again!");
+                System.exit(0);
+                break;
 
         }
     }
 
     public static void main(String[] args) {
         bookDB = BookTextFile.loadBookDB();
-        boolean continueLoop = true;
         String userString;
 
         while (continueLoop) {
@@ -50,7 +56,7 @@ public class LibraryApp {
                 continueLoop = false;
             }
         }
-        System.out.println(bookDB.getCollection().size());
         BookTextFile.writeBookDB(bookDB);
+        System.out.println("Thanks! Come again!");
     }
 }

@@ -1,3 +1,9 @@
+Wuthering Heights
+Bronte, Emily
+Fiction
+1298
+true
+
 A Heartbreaking Work of Staggering Genius
 Eggers, Dave
 Memoir
@@ -56,8 +62,8 @@ Wild: From Lost to Found on the Pacific Crest Trail
 Strayed, Cheryl
 Memoir
 1242
-true
-
+false
+03-03-2017
 A Room of One's Own
 Woolf, Virginia
 Non-Fiction
