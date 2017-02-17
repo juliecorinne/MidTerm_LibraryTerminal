@@ -1,3 +1,15 @@
+The Handmaid's Tale
+Atwood, Margaret
+Fiction
+1392
+true
+
+Notes of a Native Son
+Baldwin, James
+Non-Fiction
+7921
+true
+
 Wuthering Heights
 Bronte, Emily
 Fiction
@@ -20,8 +32,8 @@ The Girl on the Train
 Hawkins, Paula
 Fiction
 1241
-false
-03-02-2017
+true
+
 To Kill a Mockingbird
 Lee, Harper
 Fiction
@@ -50,8 +62,8 @@ Book of Basketball
 Simmons, Bill
 Non-Fiction
 6955
-true
-
+false
+03-03-2017
 The Grapes of Wrath
 Steinbeck, John
 Fiction
@@ -70,15 +82,3 @@ Non-Fiction
 1238
 false
 03-02-2017
-The Handmaid's Tale
-Atwood, Margaret
-Fiction
-1392
-true
-
-Notes of a Native Son
-Baldwin, James
-Non-Fiction
-7921
-true
-

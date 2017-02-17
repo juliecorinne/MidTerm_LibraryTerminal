@@ -45,6 +45,16 @@ public class Book {
         this.author = author;
     }
 
+    public String getAuthorLastName() {
+        String[] fullname = getAuthor().split(", ");
+        return fullname[0];
+    }
+
+    public String getAuthorFirstName() {
+        String[] fullname = getAuthor().split(", ");
+        return fullname[1];
+    }
+
     public String getCategory() {
         return category;
     }

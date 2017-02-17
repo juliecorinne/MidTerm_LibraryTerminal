@@ -13,7 +13,6 @@ public class BookDB {
     //constructor
     public BookDB() {
         this.collection = new ArrayList<Book>();
-        this.collection.sort(Comparator.comparing(Book::getAuthor));
 
     }
 
@@ -25,14 +24,11 @@ public class BookDB {
         this.collection = collection;
     }
 
-    public void printBook(Book book) {
-        System.out.println(book);
-    }
-
     public void addBook(Book book) {
         this.collection.add(book);
     }
 
+    //calls methods for userinput and adds book to collection
     public void addUserBook() {
         this.collection.add(new Book(getUserTitle(), getUserAuthor(), getUserGenre(), Book.setRandomISBN(), true));
         System.out.println("Thank you for your donation!");
@@ -56,12 +52,13 @@ public class BookDB {
         return Validate.getString("Enter book genre: ");
     }
 
-    //sorts BookDB ArrayList alphabetically y author
+    //sorts BookDB ArrayList alphabetically by author
     public void sortDB() {
 
         this.collection.sort(Comparator.comparing(Book::getAuthor));
     }
 
+    //prints formatted column headers
     public void header() {
         System.out.printf("%-54s%-20s%-15s%-10s%-15s%-15s\n", "|                      Title                        |", "|     Author     |", "|    Genre    |", "| ISBN |", "|   Status   |", "| Due Date |");
         System.out.println("------------------------------------------------------------------------------------------------------------------------------");
@@ -77,8 +74,8 @@ public class BookDB {
         checkOut();
     }
 
-    /*  Method gather string from user.
-        Matches string with string contained in Book Author and prints out information for these books.
+    /*  Method gathers string from user.
+        Matches string with string contained in Book Author, Title or Genre and prints out information for these books.
         Enters into BookDB checkout method
         Prints message if no matches appear.
     */
@@ -116,7 +113,7 @@ public class BookDB {
         while (continueLoop) {
             header();
             for (Book b : this.collection) {
-                if (b.getAuthor().toLowerCase().contains(input.toLowerCase())) {
+                if (input.equalsIgnoreCase(b.getAuthorLastName()) || input.equalsIgnoreCase(b.getAuthorFirstName())){
                     System.out.println(b);
                     continueLoop = false;
                 }
@@ -144,7 +141,7 @@ public class BookDB {
         while (continueLoop) {
             header();
             for (Book b : this.collection) {
-                if (b.getCategory().toLowerCase().contains(input.toLowerCase())) {
+                if (input.equalsIgnoreCase(b.getCategory())){
                     System.out.println(b);
                     continueLoop = false;
                 }
@@ -166,18 +163,24 @@ public class BookDB {
         }
     }
 
+    //validates user input for book availability
+
     public void selectBook() {///todo complete validation
         boolean continueLoop = true;
+        //gathers to userinput for isbn or book title
         String input = Validate.getString("Enter ISBN or Book Title to check out: ");
+        //loop continues while userinput does not match any isbn or book title in database
         while (continueLoop) {
             for (Book b : this.collection) {
                 if (input.equalsIgnoreCase(b.getIsbn()) || input.equalsIgnoreCase(b.getTitle())) {
+                    //check book status, allows user to check out book if it is available
                     if (b.getStatus()) {
+                        continueLoop = false;
                         System.out.println("Book is available!");
                         System.out.println(b);
                         input = Validate.validateYesOrNo("Would you like to check out this book? (Y/N) ");
-                        continueLoop = false;
                         if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
+                            //creates due date and flips status for book objects and store this new data
                             b.checkInOut();
                             System.out.println(b.getTitle() + " is due back by " + b.getDateString());
                         }

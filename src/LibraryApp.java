@@ -2,6 +2,8 @@ public class LibraryApp {
     static BookDB bookDB = new BookDB();
     static boolean continueLoop = true;
 
+
+    //displays navigation options for app
     public static void displayMenu() {
         System.out.println("Hello! Welcome to the grand Circus Library Database.");
         System.out.println("1. Display all books");
@@ -13,6 +15,8 @@ public class LibraryApp {
         System.out.println("7. Quit");
     }
 
+
+    //navigates through application based on user input
     public static void userSelection() {
         int userChoice = Validate.validateInt("Select option (1-7): ", 1, 7);
         switch (userChoice) {
@@ -35,6 +39,7 @@ public class LibraryApp {
                 bookDB.addUserBook();
                 break;
             case 7:
+                //also writes BookDB data to .txt file before program closes
                 BookTextFile.writeBookDB(bookDB);
                 System.out.println("Thanks! Come again!");
                 System.exit(0);
@@ -44,6 +49,7 @@ public class LibraryApp {
     }
 
     public static void main(String[] args) {
+        //loads BookDB with Book objects from .txt file
         bookDB = BookTextFile.loadBookDB();
         String userString;
 
@@ -51,11 +57,13 @@ public class LibraryApp {
             bookDB.sortDB();
             displayMenu();
             userSelection();
+            //allows user exit program or start over at main menu
             userString = Validate.validateYesOrNo("Would you like to return to main menu? (Y/N) ");
             if (userString.equalsIgnoreCase("n") || userString.equalsIgnoreCase("no")) {
                 continueLoop = false;
             }
         }
+        //before program ends, BookDB data is written to .txt file
         BookTextFile.writeBookDB(bookDB);
         System.out.println("Thanks! Come again!");
     }

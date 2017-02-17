@@ -10,15 +10,18 @@ public class Validate {
         return s;
     }
 
+    public static String getString(){
+        return scnr.nextLine();
+    }
+
     public static String validateYesOrNo(String prompt) {
         System.out.println(prompt);
-        String input = scnr.next();
+        String input = scnr.nextLine();
         while (!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n") && !input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")) {
-            input = scnr.nextLine();
             System.out.println("Input error");
             System.out.println(prompt);
+            input = scnr.nextLine();
         }
-        scnr.nextLine();
         return input;
     }
 
