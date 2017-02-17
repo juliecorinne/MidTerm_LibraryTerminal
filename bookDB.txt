@@ -1,31 +1,31 @@
-Nineteen Eighty-Four
-Orwell, George
-Fiction
-1234
-true
-
 A Heartbreaking Work of Staggering Genius
 Eggers, Dave
 Memoir
 1235
-false
-10-21-2014
-The Grapes of Wrath
-Steinbeck, John
-Fiction
-1236
-false
-02-16-2017
+true
+
 A Million Little Pieces
 Frey, James
 Fiction
 1237
 true
 
-A Room of One's Own
-Woolf, Virginia
-Non-Fiction
-1238
+The Girl on the Train
+Hawkins, Paula
+Fiction
+1241
+false
+03-02-2017
+To Kill a Mockingbird
+Lee, Harper
+Fiction
+1240
+false
+03-02-2017
+Nineteen Eighty-Four
+Orwell, George
+Fiction
+1234
 true
 
 The Making of the Atomic Bomb
@@ -34,21 +34,33 @@ Non-Fiction
 1239
 false
 02-15-2017
-To Kill a Mockingbird
-Lee, Harper
-Fiction
-1240
-false
+Give the People What They Want
+Rose, Jalen
+Memoir
+0475
+true
 
-The Girl on the Train
-Hawkins, Paula
-Fiction
-1241
-false
+Book of Basketball
+Simmons, Bill
+Non-Fiction
+6955
+true
 
+The Grapes of Wrath
+Steinbeck, John
+Fiction
+1236
+false
+02-16-2017
 Wild: From Lost to Found on the Pacific Crest Trail
 Strayed, Cheryl
 Memoir
 1242
-false
+true
 
+A Room of One's Own
+Woolf, Virginia
+Non-Fiction
+1238
+false
+03-02-2017

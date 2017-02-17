@@ -6,15 +6,14 @@ public class Validate {
 
     public static String getString(String prompt) {
         System.out.println(prompt);
-        String s = scnr.next();  // read user entry
-        scnr.nextLine();  // discard any other data entered on the line
+        String s = scnr.nextLine();  // read user entry
         return s;
     }
 
     public static String validateYesOrNo(String prompt) {
         System.out.println(prompt);
         String input = scnr.next();
-        while (!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n")) {
+        while (!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n") && !input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")) {
             input = scnr.nextLine();
             System.out.println("Input error");
             System.out.println(prompt);

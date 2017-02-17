@@ -3,31 +3,35 @@ public class LibraryApp {
 
     public static void displayMenu() {
         System.out.println("Grand Circus Library");
-        System.out.println("1. Display list of books");
-        System.out.println("2. Search by Author");
-        System.out.println("3. Search by Title");
+        System.out.println("1. Display all books");
+        System.out.println("2. Search by Keyword");
+        System.out.println("3. Search by Author");
         System.out.println("4. Search by Genre");
-        System.out.println("5. Quit");
+        System.out.println("5. Return book");
+        System.out.println("6. Donate book");
+        System.out.println("7. Quit");
     }
 
     public static void userSelection() {
-        int userChoice = Validate.validateInt("Select option (1-6): ", 1, 5);
+        int userChoice = Validate.validateInt("Select option (1-7): ", 1, 7);
         switch (userChoice) {
             case 1:
                 bookDB.displayBooks();
                 break;
             case 2:
-                bookDB.searchByAuthor();
+                bookDB.searchByKeyword();
                 break;
             case 3:
-                bookDB.searchByKeyword();
+                bookDB.searchByAuthor();
                 break;
             case 4:
                 bookDB.searchByCategory();
                 break;
             case 5:
-                BookTextFile.writeBookDB(bookDB);
+                bookDB.returnBook();
                 break;
+            case 6:
+                bookDB.addUserBook();
 
         }
     }
@@ -38,6 +42,7 @@ public class LibraryApp {
         String userString;
 
         while (continueLoop) {
+            bookDB.sortDB();
             displayMenu();
             userSelection();
             userString = Validate.validateYesOrNo("Would you like to return to main menu? (Y/N) ");

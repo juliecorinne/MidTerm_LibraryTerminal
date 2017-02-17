@@ -36,16 +36,15 @@ public class BookTextFile {
                 //reads string from .txt file, converts to boolean. will return false for any strings that are not "true"
                 String s = reader.readLine();
                 boolean status = Boolean.parseBoolean(s);
-                //JB tempList.addBook(new Book(title, author, category, date, status));
-                //reads string from .txt file, converts to Calendar object.
                 String d = reader.readLine();
+                //readers string from .txt file. If String is empty, creates Book Object without dueDate
                 if(d.equalsIgnoreCase("")){
                     tempList.addBook(new Book(title, author, genre, isbn, status));
+                //reads string from .txt file, converts to Calendar object. If book is checked out, creates Book object with dueDate
                 }else {
                     Calendar date = stringToCalendar(d);
-                    tempList.addBook(new CheckedOutBook(title, author, genre, isbn, status, date));
+                    tempList.addBook(new Book(title, author, genre, isbn, status, date));
                 }
-
             }
 
             reader.close();
@@ -89,11 +88,13 @@ public class BookTextFile {
                 out.println(book.getAuthor());
                 out.println(book.getCategory());
                 out.println(book.getIsbn());
-                out.println(String.valueOf(book.isStatus()));
-                if (book instanceof CheckedOutBook) {
-                    out.println(((CheckedOutBook) book).getDateString());
+                out.println(String.valueOf(book.getStatus()));
+                //Prints date as formatted string to file if book is available
+                if (book.getDueDate() != null) {
+                    out.println(book.getDateString());
+                //Prints new line if book is checked out
                 } else {
-                    out.println("");
+                    out.println();
                 }
             }
             out.close();
