@@ -105,9 +105,9 @@ public class Book {
     public String toString() {
         String checkedOut = "Checked Out";
         if (status) {
-            return String.format("%-55s%-20s%-20s%-10s", title, author, category, isbn);
+            return String.format("%-55s%-20s%-15s%-10s", title, author, category, isbn);
         } else {
-            return String.format("%-55s%-20s%-20s%-10s%-20s%-20s", title, author, category, isbn, "Checked Out", getDateString());
+            return String.format("%-55s%-20s%-15s%-10s%-15s%-15s", title, author, category, isbn, "Checked Out", getDateString());
         }
     }
 
